@@ -9,6 +9,46 @@ Beberapa menu yg ada di project yaitu :
 - Change Password
 
 
+# Project structure
+
+```
+dist/                        compiled version
+docs/                        project docs and coding guides
+e2e/                         end-to-end tests
+src/                         project source code
+|- app/                      app components
+|  |- app.component.*        app root component (shell)
+|  |- accounts.component.*   account component
+|  |  |- change-password.*   change password component for Change Password
+|  |  |- register.*          register component for Register an account
+|  |- employees.component.*  employees component for parent component of Master Employee
+|  |  |- manage-employee.*   manage employee component for Add/Edit data Employee.
+|  |  |- employee-list.*     employee list component for show list of Employee Data, Search & Delete.
+|  |- areas.component.*      areas component for parent component of Master Area
+|  |  |- area-employee.*     manage area component for Add/Edit data Area.
+|  |  |- area-list.*         area list component for show list of Area Data, Search & Delete.
+|  |- home.component.*       home component for routing page for Info, Master Emplyee, Master Area & Change Password
+|  |  |- info.*              info component for show Employee Name currently logged.
+|  |- login.component.*      login component for Login.
+|  |- page-not-found.*       page not found component for routing if wrong route/url.
+|  |- shared                 shared folder for services & model class.
+|  |  |- account.model.ts    model class for Account.
+|  |  |- account.service.ts  account service for manage integration data (GET,POST,etc),global variable & call method/function.
+|  |  |- area.model.ts       model class for Area.
+|  |  |- area.service.ts     area service for manage integration data (GET,POST,etc),global variable & call method/function.
+|  |  |- employee.model.ts   model class for Employee.
+|  |  |- employee.service.ts     employee service for manage integration data (GET,POST,etc),global variable & call method/function.
+|  |- app.module.ts          app root module definition
+|  |- app-routing.module.ts  app routes
+|  +- ...                    additional modules and components
+|- assets/                   app assets (images)
+|- environments/             values for various build environments
+|- index.html                html entry point
+|- polyfills.ts              polyfills needed by Angular
+reports/                     test and coverage reports
+proxy.conf.js                backend proxy configuration
+```
+
 # DatabinApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
