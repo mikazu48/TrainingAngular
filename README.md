@@ -1,3 +1,14 @@
+# Training Angular dengan Back-End .NET
+Hallo, kali ini saya belajar angular dengan integrasi ke API .NET (Web Api2) dan koneksi database PostgreSQL.
+Beberapa menu yg ada di project yaitu :
+- Login
+- Register
+- Info
+- Master Employee
+- Master Area
+- Change Password
+
+
 # DatabinApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
