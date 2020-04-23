@@ -1,0 +1,17 @@
+<div class="jumbtron">
+    <h3 class="display-1 text-center">Reactive : Master Area Data</h3>
+    <button class="btn btn-primary"  
+         *ngIf="!areaService.bAddData" (click)="addData()">Add New Data</button>
+    <div class="row">
+        <!-- <div class="col-md-5">
+            <app-manage-Area></app-manage-Area>
+        </div>-->
+        <div >
+             <router-outlet></router-outlet>
+        </div> 
+        <div>
+            <app-area-list *ngIf="!areaService.bAddData"></app-area-list>
+        </div>
+
+    </div>
+</div>

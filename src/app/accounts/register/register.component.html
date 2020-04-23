@@ -1,0 +1,50 @@
+<form #form="ngForm" autocomplete="off">
+    <div class="login-form">
+        <form action="/examples/actions/confirmation.php" method="post">
+            <h2>Sign Up</h2>
+            
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input type="text"  #Username="ngModel" [(ngModel)]="accService.formDataGet.Username"
+                    class="form-control" name="Username" placeholder="Username" required="required">				
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" #Password="ngModel" [(ngModel)]="accService.formDataGet.Password"
+                    class="form-control" name="Password" placeholder="Password" required="required">				
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" class="form-control" [(ngModel)]="ConfirmPassword"
+                    name="confirm_password" placeholder="Confirm Password" required="required">				
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input type="text"  (input)="onChangedData(EmployeeID.value)"
+                    #EmployeeID="ngModel" [(ngModel)]="accService.formDataGet.EmployeeID"
+                    class="form-control" name="EmployeeID" placeholder="EmployeeID" required="required">				
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input type="text" [(ngModel)]="EmployeeName"
+                    class="form-control" name="EmployeeName" placeholder="EmployeeName" disabled>				
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-lg" (click)="onSubmit(form)">Sign Up</button>
+            </div>
+        </form>
+        <div class="text-center">Already have an account? <a routerLink="/login">Login here</a></div>
+    </div>
+</form>

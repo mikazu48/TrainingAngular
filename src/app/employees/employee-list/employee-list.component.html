@@ -1,0 +1,68 @@
+<!-- <button class="btn btn-primary"  routerLink="/new">Add New Data</button> -->
+<div class="container">
+  
+<div class="col-md-4 pull-right">
+  <div class="input-group">
+    <span class="input-group-addon" id="basic-addon1">
+        <i class="glyphicon glyphicon-search"></i>
+    </span>
+  <input type="text" class="form-control" placeholder="Search Data.."
+  aria-describedby="basic-addon1"
+  (input)='searchData($event.target.value)'>
+  <br>
+</div>
+</div>
+
+<div>
+
+  <table class="table table-bordered table-hover" >
+    <thead >
+        <th class="col-xs-2">No</th>
+        <th class="col-xs-2">ID</th>
+        <th class="col-xs-4">Employee Name</th>
+        <th class="col-xs-3">BirthDate</th>
+        <th class="col-xs-3">Email</th>
+        <th class="col-xs-3">Phone</th>
+        <th class="col-xs-3">Address</th>
+        <th class="col-xs-3">Position</th>
+        <th class="col-xs-3">Division</th>
+        <th class="col-xs-3">SupervisorID</th>
+        <th class="col-xs-2" colspan="2">Action</th>
+
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let emp of empService.employeeList; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{emp.EmployeeID}}</td>
+        <td>{{emp.EmployeeName}}</td>
+        <td>{{emp.BirthDate | date: 'dd/MM/yyyy'}} </td>
+        <td>{{emp.Email}}</td>
+        <td>{{emp.ContactPhone}}</td>
+        <td>{{emp.Address}}</td>
+        <td>{{emp.Position}}</td>
+        <td>{{emp.Division}}</td>
+        <td>{{emp.SupervisorID}}</td>
+        <td>
+            <!-- <button class="btn btn-sm btn-primary" (click)="populateForm(ar)">Edit</button>
+            &nbsp;
+            <button class="btn btn-sm btn-danger"(click)="onDelete(ar)">Delete</button> -->
+            <button 
+            class="btn btn-sm btn-primary" 
+            (click)="populateForm(emp)"
+            >Edit</button>
+        </td>
+        <td>
+          <button 
+          class="btn btn-sm btn-danger"
+          (click)="onDelete(emp)"
+          >Delete</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+
+</div>
+
+<!-- [routerLink]="['/employees/edit',emp.EmployeeID]" -->

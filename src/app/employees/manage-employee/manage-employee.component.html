@@ -1,0 +1,78 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <div class="form-group">
+        <label>Employee ID</label>
+        <input name="EmployeeID" (input)="onChangedData(empService.formDataGet.EmployeeID)" #EmployeeID="ngModel" [(ngModel)]="empService.formDataGet.EmployeeID" class="form-control" #EmployeeID="ngModel" required >
+        <div class="help-block" *ngIf="EmployeeID.invalid && EmployeeID.touched">Please fill Employee ID.</div>
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input name="EmployeeName" #EmployeeName="ngModel" [(ngModel)]="empService.formDataGet.EmployeeName"  class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label>Gender</label>
+        <div class="radio" *ngFor="let gender of empService.genderList">
+            <label><input type="radio" name="Gender" checked #Gender="ngModel" [(ngModel)]="empService.formDataGet.Gender" [value]="gender" >{{gender}}</label>
+        </div>
+        <!-- <input name="Gender" #Gender="ngModel" [(ngModel)]="empService.formDataGet.Gender"  class="form-control" required> -->
+    </div>
+    <div class="form-group">
+        <label>Birth Date</label>
+        <input name="BirthDate" #BirthDate="ngModel" type="date" [ngModel]="empService.formDataGet.BirthDate | date:'yyyy-MM-dd'"  class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input name="Email" type="email" #Email="ngModel" [(ngModel)]="empService.formDataGet.Email"  class="form-control" required email>
+        <div class="help-block" *ngIf="Email.invalid && Email.touched">Please fill correct email (xx@xx.xx).</div>
+
+    </div>
+    <div class="form-group">
+        <label>Contact Phone</label>
+        <input 
+        name="ContactPhone" type="tel" #ContactPhone="ngModel" [(ngModel)]="empService.formDataGet.ContactPhone"  
+        (input)="isNumber(ContactPhone.value)" class="form-control" required>
+        <div class="help-block" *ngIf="!bNumber">Sorry phone just number. Please check correctly.</div>
+    </div>
+    <div class="form-group">
+        <label>Address</label>
+        <!-- <input name="Address" type="" [(ngModel)]="EmployeeData.Address"  class="form-control" required> -->
+        <textarea name="Address" #Address="ngModel" class="span6" rows="3"  [(ngModel)]="empService.formDataGet.Address"  class="form-control" placeholder="Your address.." required></textarea>
+    </div>
+    
+    <div class="form-group">
+        <img 
+        [src]="defaultImageUrl" 
+        style="width: 30%;height: 30%;"
+        class="img-responsive col-xs-12" >
+        <input type="file" 
+        name="Picture" #Picture="ngModel" [(ngModel)]="empService.formDataGet.Picture"
+        accept="image/*"  title="empService.formDataGet.Picture"
+        (change)="handleFileInput($event.target.files)" class="form-control" >
+    </div>
+    <div class="form-group">
+        <label>Position</label>
+        <select class="form-control" 
+        name="Position" #Position="ngModel"  [(ngModel)]="empService.formDataGet.Position"
+        (ngModelChange)="onSelectedChangePosition($event)"
+        >
+            <option *ngFor="let position of empService.positionList">{{position}}</option>
+          </select>
+    </div>
+    <div class="form-group">
+        <label>Division</label>
+        <select class="form-control" 
+        name="Division" #Division="ngModel"  [(ngModel)]="empService.formDataGet.Division"  
+        (ngModelChange)="onSelectedChangeDivison($event)"
+        >
+            <option *ngFor="let division of empService.divisionList" >{{division}}</option>
+          </select>
+        <!-- <input name="Division" #Division="ngModel" [(ngModel)]="empService.formDataGet.Division"  class="form-control" required> -->
+    </div>
+    <div class="form-group">
+        <label>Supervisor</label>
+        
+        <input name="SupervisorID" #SupervisorID="ngModel"  [(ngModel)]="empService.formDataGet.SupervisorID"  class="form-control" required>
+    </div>
+    <hr>
+    <button class="btn btn-success" type="submit">Save Data</button>
+
+</form>

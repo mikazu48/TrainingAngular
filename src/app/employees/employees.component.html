@@ -1,0 +1,17 @@
+<div class="jumbtron">
+    <h3 class="display-1 text-center">Template-Driven : Master Area Data</h3>
+    <button class="btn btn-primary"  
+        [routerLink]="['/employees/new']" *ngIf="!empService.bAddData">Add New Data</button>
+    <div class="row">
+        <!-- <div class="col-md-5">
+            <app-manage-employee></app-manage-employee>
+        </div>-->
+        <div >
+             <router-outlet></router-outlet>
+        </div> 
+        <div>
+            <app-employee-list *ngIf="!empService.bAddData"></app-employee-list>
+        </div>
+
+    </div>
+</div>

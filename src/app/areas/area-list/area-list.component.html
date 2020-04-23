@@ -1,0 +1,60 @@
+<!-- <button class="btn btn-primary"  routerLink="/new">Add New Data</button> -->
+<div class="container">
+  
+    <div class="col-md-4 pull-right">
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">
+            <i class="glyphicon glyphicon-search"></i>
+        </span>
+      <input type="text" class="form-control" placeholder="Search Data.."
+      aria-describedby="basic-addon1"
+      (input)='searchData($event.target.value)'>
+      <br>
+    </div>
+    </div>
+    
+    
+    </div>
+    
+    <div class="col">
+    
+        <table class="table table-striped table-hover" >
+          <thead >
+              <th>No</th>
+              <th class="col-xs-2">ID</th>
+              <th class="col-xs-3">Area Name</th>
+              <th class="col-xs-2">Regional</th>
+              <th class="col-xs-2">District</th>
+              <th class="col-xs-2" colspan="2">Action</th>
+              
+      
+          </thead>
+          <tbody>
+      
+            <tr *ngFor="let ar of areaService.areaList; let i = index">
+              <td>{{i + 1}}</td>
+              <td>{{ar.AreaID}}</td>
+              <td>{{ar.AreaName}}</td>
+              <td>{{ar.Regional}}</td>
+              <td>{{ar.District}}</td>
+              <td>
+                  <!-- <button class="btn btn-sm btn-primary" (click)="populateForm(ar)">Edit</button>
+                  &nbsp;
+                  <button class="btn btn-sm btn-danger"(click)="onDelete(ar)">Delete</button> -->
+                  <button 
+                  class="btn btn-sm btn-primary" 
+                  (click)="populateForm(ar)"
+                  >Edit</button>
+              </td>
+              <td>
+                <button 
+                class="btn btn-sm btn-danger"
+                (click)="onDelete(ar)"
+                >Delete</button>
+              </td>
+          </tr>
+          </tbody>
+      </table>
+      </div>
+    <!-- [routerLink]="['/employees/edit',emp.EmployeeID]" -->
+    
